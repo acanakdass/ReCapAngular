@@ -1,0 +1,5 @@
+<ul class="list-group">
+   <li (click)="setSelectedBrand(brand)" *ngFor="let brand of brands" [class]="getSelectedBrandClass(brand)">
+      {{brand.name}} </li>
+</ul>
+<br />
