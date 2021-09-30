@@ -3,7 +3,7 @@
       <span class="visually-hidden">Loading...</span>
    </div>
 </div>
-<table *ngIf="isDataLoaded==true" class="table">
+<!-- <table *ngIf="isDataLoaded==true" class="table">
    <thead>
       <tr>
          <th>ID</th>
@@ -27,4 +27,59 @@
 
       </tr>
    </tbody>
-</table>
+</table> -->
+
+<!-- <div class="card-deck" style="width:40%;">
+   <div *ngFor="let car of cars" class="card">
+      <img class="card-img-top"
+         src="https://w7.pngwing.com/pngs/114/496/png-transparent-kia-motors-car-2016-kia-sportage-2018-kia-sportage-kia-compact-car-car-subcompact-car.png"
+         alt="Card image cap">
+      <div class="card-body">
+         <h5 class="card-title">Card title</h5>
+         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+            content. This content is a little bit longer.</p>
+         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+   </div>
+
+</div> -->
+<div class="row">
+   <div class="col-lg-4 col-md-6 shadow-lg p-3 mb-5 rounded" *ngFor="let car of cars">
+      <div class="card border-0 mb-3" style="width: 18rem">
+         <img class="car-image" routerLink="/cars/car-detail/{{ car.id }}"
+            src="https://localhost:34070/{{car.carImagePaths[0]}} " class="card-img-top" alt="Image" role="button"
+            width="200" height="200" />
+         <div class="card-body text-center">
+            <h4>
+               <a routerLink="/cars/car-detail/{{ car.id }}" class="card-title text-decoration-none h5"
+                  style="color: #007bff">{{ car.brandName }}
+               </a>
+            </h4>
+         </div>
+         <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">
+               <span class="float-start">Renk</span>
+               <span class="float-end">{{ car.colorName }}</span>
+            </li>
+            <li class="list-group-item">
+               <span class="float-start">Model</span>
+               <span class="float-end">{{ car.modelYear }}</span>
+            </li>
+            <li class="list-group-item">
+               <span class="float-start">Açıklama</span>
+               <span class="float-end">{{ car.description }}</span>
+            </li>
+            <p class="card-text text-center h3 mt-3">{{ car.dailyPrice }}₺</p>
+         </ul>
+         <div class="card-body">
+            <div class="d-flex action justify-content-between">
+               <!-- <a type="button" (click)="addToCart(car)" class="btn btn-success">Sepete Ekle</a> -->
+               <!-- Button trigger modal -->
+
+               <a class="btn btn-primary w-100" routerLink="/cars/car-detail/{{ car.id }}">Detaylar</a>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
