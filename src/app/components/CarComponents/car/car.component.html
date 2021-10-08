@@ -15,7 +15,6 @@
       </tr>
    </thead>
    <tbody>
-
       <tr *ngFor="let car of cars">
          <td>{{car.id}}</td>
          <td>{{car.description}}</td>
@@ -23,8 +22,6 @@
          <td>{{car.brandName}}</td>
          <td>{{car.colorName}}</td>
          <td>{{car.dailyPrice}}</td>
-
-
       </tr>
    </tbody>
 </table> -->
@@ -46,12 +43,12 @@
 <div class="row">
    <div class="col-lg-4 col-md-6 shadow-lg p-3 mb-5 rounded" *ngFor="let car of cars">
       <div class="card border-0 mb-3" style="width: 18rem">
-         <img class="car-image" routerLink="/cars/car-detail/{{ car.id }}"
-            src="https://localhost:34070/{{car.carImagePaths[0]}} " class="card-img-top" alt="Image" role="button"
+         <img class="car-image" routerLink="/cars/detail/{{ car.id }}"
+            src="https://localhost:34070/{{car.carImagePaths[0]}}" class="card-img-top" alt="Image" role="button"
             width="200" height="200" />
          <div class="card-body text-center">
             <h4>
-               <a routerLink="/cars/car-detail/{{ car.id }}" class="card-title text-decoration-none h5"
+               <a routerLink="/cars/detail/{{ car.id }}" class="card-title text-decoration-none h5"
                   style="color: #007bff">{{ car.brandName }}
                </a>
             </h4>
@@ -70,14 +67,14 @@
                <span class="float-start">Açıklama</span>
                <span class="float-end">{{ car.description }}</span>
             </li>
-            <p class="card-text text-center h3 mt-3">{{ car.dailyPrice }}₺</p>
+            <p class="card-text text-center h4 mt-3">{{ car.dailyPrice |currency:'TRY '}}</p>
          </ul>
          <div class="card-body">
             <div class="d-flex action justify-content-between">
                <!-- <a type="button" (click)="addToCart(car)" class="btn btn-success">Sepete Ekle</a> -->
                <!-- Button trigger modal -->
 
-               <a class="btn btn-primary w-100" routerLink="/cars/car-detail/{{ car.id }}">Detaylar</a>
+               <a class="btn btn-primary w-100" routerLink="/cars/detail/{{ car.id }}">Detaylar</a>
             </div>
          </div>
       </div>

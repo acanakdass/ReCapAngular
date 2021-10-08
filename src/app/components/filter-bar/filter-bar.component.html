@@ -1,0 +1,20 @@
+<div class="row py-2">
+   <div class="col-md-5">
+      <select [(ngModel)]="selectedBrandId" class="form-select form-select-sm" aria-label=".form-select-sm example">
+         <option value=0>Marka Seçiniz</option>
+         <option value={{brand.id}} *ngFor="let brand of brands">{{brand.name}}</option>
+      </select>
+   </div>
+   <div class="col-md-5">
+      <select [(ngModel)]="selectedColorId" class="form-select form-select-sm">
+         <option value=0>Renk Seçiniz</option>
+         <option value={{color.id}} *ngFor="let color of colors">{{color.name}}</option>
+      </select>
+   </div>
+   <div class="col-md-2">
+      <div class="d-grid">
+         <button routerLink="cars/color/{{selectedColorId}}/brand/{{selectedBrandId}}"
+            class="btn btn-sm btn-outline-dark" type="button">Filtrele</button>
+      </div>
+   </div>
+</div>

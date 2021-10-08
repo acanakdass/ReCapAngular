@@ -1,0 +1,15 @@
+<div *ngIf="isDataLoaded==false" class="text-center">
+   <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+   </div>
+</div>
+<ul *ngIf="isDataLoaded==true" class="list-group">
+   <li class="list-group-item bg-dark text-white text-center h5">Markalar</li>
+   <li class="list-group-item">
+      <input [(ngModel)]="filterText" type="text" class="form-control" id="filterText" placeholder="Marka Ara..">
+   </li>
+   <li routerLink="/cars/getByBrand/{{brand.id}}" (click)="setSelectedBrand(brand)"
+      *ngFor="let brand of brands |filterBrand:filterText" [class]="getSelectedBrandClass(brand)">
+      {{brand.name}} </li>
+</ul>
+<br />

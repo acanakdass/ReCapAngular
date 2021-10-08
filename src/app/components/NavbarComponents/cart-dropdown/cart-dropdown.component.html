@@ -1,0 +1,78 @@
+<!-- <li class="nav-item dropdown">
+   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+      aria-expanded="false">
+      Cart
+   </a>
+   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <li *ngFor="let item of cartItems"><a class="dropdown-item">{{item.description}} </a></li>
+
+      <li>
+         <hr class="dropdown-divider">
+      </li>
+      <li><a class="dropdown-item" routerLink="cart">Go to Cart</a></li>
+   </ul>
+</li> -->
+<li class="nav-item">
+   <div class="btn-group">
+      <button class="btn btn-warning rounded" style="width: 120px;" type="button" id="dropdownMenu2"
+         data-bs-toggle="dropdown" aria-expanded="false">
+         Sepetim <strong>({{cartItems.length}})</strong>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" style="min-width: 300px; max-width: 400px;"
+         aria-labelledby="dropdownMenu2">
+         <li>
+            <h6 class="dropdown-header">Sepetim ({{cartItems.length}} araç)</h6>
+         </li>
+         <div *ngIf="cartItems.length!==0">
+            <li>
+               <hr class="dropdown-divider">
+            </li>
+
+            <li *ngFor="let cartItem of cartItems">
+               <div class="container" routerLink="/cars/detail/{{cartItem.id}}">
+                  <div style="display: flex; flex: 1 1 auto;">
+                     <div class="d-flex align-items-center">
+                        <img class="" [src]="getFullImagePath(cartItem.carImagePaths[0])" height="100" width="150"
+                           alt="...">
+                     </div>
+                     <div class="card-body" style="min-width: 200px; max-width: 300px;">
+                        <h6 class="card-title">{{cartItem.brandName}} {{cartItem.description}}</h6>
+
+                        <!-- <div class="row">
+                                   <p class="card-text">
+                                       <small class="text-muted">{{showDate(cartItem.rentDate)}} -
+                                           {{showDate(cartItem.returnDate)}}<br>
+                                           ({{getRentalPeriod(cartItem.rentDate,cartItem.returnDate)}} gün
+                                           kiralanıyor)</small>
+                                   </p>
+                               </div> -->
+                        <div class="row d-flex justify-content-end align-items-center">
+                           <!-- <div class="col-md-7">
+                                       <p class="card-text text-danger">
+                                           <strong>{{cartItem.car.dailyPrice *
+                                               getRentalPeriod(cartItem.rentDate,cartItem.returnDate) |
+                                               currency:"":""}}₺</strong>
+                                       </p>
+                                   </div> -->
+                           <div class="col-md-5">
+                              <div class="text-end">
+                                 <button type="button" (click)="removeFromCart(cartItem.id)"
+                                    class="btn btn-danger btn-sm">Sil</button>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <hr class="dropdown-divider">
+            </li>
+            <li>
+               <span class="d-flex flex-column">
+                  <button routerLink="cart" class="btn btn-outline-success text-center" type="button"><strong>SEPETE
+                        GİT</strong></button>
+               </span>
+            </li>
+         </div>
+      </ul>
+   </div>
+</li>
