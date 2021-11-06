@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Car } from '../models/car';
 import { CartItems } from '../models/cartItems';
-import { ErrorResult } from '../models/Results/ErrorResult';
 import { Result } from '../models/Results/result';
 import { SuccessResult } from '../models/Results/successResult';
+import { ErrorResult } from '../models/Results/errorResult';
 
 @Injectable({
   providedIn: 'root'

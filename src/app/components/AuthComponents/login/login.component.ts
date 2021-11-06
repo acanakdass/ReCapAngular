@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
         this.toastrService.info(res.message);
         localStorage.setItem("token", res.data.token);
         this.router.navigate(['/']);
+        window.location.replace('/');
       }, responseError => {
         console.log(responseError)
         this.toastrService.error(responseError.error)
